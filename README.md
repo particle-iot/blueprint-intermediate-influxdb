@@ -165,7 +165,7 @@ The default rate is once per minute, however this can be modified by updating th
 List the Particle APIs and features demonstrated. Add links pointing to their documentation.
 
 - [Extended publish](https://docs.particle.io/reference/device-os/typed-publish/)
-- Particle integrations
+- [Particle integrations](https://docs.particle.io/integrations/introduction/)
 
 ---
 
