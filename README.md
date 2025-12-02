@@ -171,4 +171,4 @@ List the Particle APIs and features demonstrated. Add links pointing to their do
 
 ### Extensions
 
-Try extending this stream with a sensor reading such as the [Muon's onboard temperature sensor](https://github.com/particle-iot/blueprint-intermediate-temperature-ledger).
+Try extending this stream with a sensor reading such as from the [Muon's onboard temperature sensor](https://github.com/particle-iot/blueprint-intermediate-temperature-ledger).
