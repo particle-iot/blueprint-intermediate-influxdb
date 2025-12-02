@@ -54,9 +54,9 @@ This blueprint shows how to configure an InfluxDB time series database integrati
       ![Custom template](./images/particle/custom-template.png)
    4. Paste the following template in. Make sure to change the `url` property to match the region your InfluxDB instance (i.e. `us-east-1-1`).
 
-   Note the `body` contents. This uses the [line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/#Copyright) to fill in the time series data. You can update it according to your application.
+      Note the `body` contents. This uses the [line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/#Copyright) to fill in the time series data. You can update it according to your application.
 
-   You should also note the `event` key, this requires data to be published to the `data` event stream. Feel free to update this accordingly.
+      You should also note the `event` key, this requires data to be published to the `data` event stream. Feel free to update this accordingly.
 
    ```json
    {
