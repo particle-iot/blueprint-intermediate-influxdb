@@ -26,33 +26,33 @@ This blueprint shows how to configure an InfluxDB time series database integrati
 
 1. **Create InfluxDB bucket**
 
-   1. Log in or create an account in [InfluxDB](https://www.influxdata.com/)
-   2. Create a new data bucket by navigating to the `Buckets` page on the left navigation panel. Make note of the bucket's name you chose.
+   - Log in or create an account in [InfluxDB](https://www.influxdata.com/)
+   - Create a new data bucket by navigating to the `Buckets` page on the left navigation panel. Make note of the bucket's name you chose.
       ![New Influx bucket](./images/influx/create-bucket.png)
       ![Name bucket](./images/influx/name-bucket.png)
 
 2. **Create InfluxDB API token**
 
-   1. Navigate to API TOKENS and create a new Custom API Token. Make note of the token for later.
+   - Navigate to API TOKENS and create a new Custom API Token. Make note of the token for later.
       ![Custom API token](./images/influx/create-api-token.png)
       ![Configure API token](./images/influx/configure-api-token.png)
 
 3. **Create Particle Cloud Secret**
 
-   1. Navigate to your Particle console and select `Cloud Services > Cloud Secrets`. Choose "Create new secret". Create a cloud secret for `INFLUX_API_KEY`, `INFLUX_ORG`, and `INFLUX_BUCKET`. These values can be pulled from the previous steps.
+   - Navigate to your Particle console and select `Cloud Services > Cloud Secrets`. Choose "Create new secret". Create a cloud secret for `INFLUX_API_KEY`, `INFLUX_ORG`, and `INFLUX_BUCKET`. These values can be pulled from the previous steps.
       ![Cloud secrets](./images/particle/cloud-secrets.png)
       ![Create new cloud secret](./images/particle/create-new-cloud-secret.png)
 
 4. **Configure Particle webhook**
 
-   1. Navigate to your Particle console and choose "Go to integrations"
+   - Navigate to your Particle console and choose "Go to integrations"
       ![Go to integrations](./images/particle/go-to-integrations.png)
-   2. Choose "Add new integration" and find "Custom Webhook".
+   - Choose "Add new integration" and find "Custom Webhook".
       ![New integration](./images/particle/new-integration.png)
       ![Custom webhook](./images/particle/custom-integration.png)
-   3. Select the "Custom Template" tab:
+   - Select the "Custom Template" tab:
       ![Custom template](./images/particle/custom-template.png)
-   4. Paste the following template in. Make sure to change the `url` property to match the region your InfluxDB instance (i.e. `us-east-1-1`).
+   - Paste the following template in. Make sure to change the `url` property to match the region your InfluxDB instance (i.e. `us-east-1-1`).
 
       Note the `body` contents. This uses the [line protocol](https://docs.influxdata.com/influxdb3/core/reference/line-protocol/#Copyright) to fill in the time series data. You can update it according to your application.
 
@@ -95,7 +95,7 @@ This blueprint shows how to configure an InfluxDB time series database integrati
    }
    ```
 
-   5. Test the webhook with the corresponding JSON payload such as: `{"count":42,"time": <epoch>}`. Note that you will likely get a "timeout" warning as the InfluxDB API returns a `204` response while the Particle webhook expects a `200` response, this is OK.
+   - Test the webhook with the corresponding JSON payload such as: `{"count":42,"time": <epoch>}`. Note that you will likely get a "timeout" warning as the InfluxDB API returns a `204` response while the Particle webhook expects a `200` response, this is OK.
       ![Test webhook](./images/particle/test-webhook.png)
       ![Test payload](./images/particle/test-payload.png)
       ![Timeout error](./images/particle/timeout-error.png)
@@ -111,20 +111,20 @@ This blueprint shows how to configure an InfluxDB time series database integrati
 
 7. **Flash to your device:**
 
-   1. Configure project for your device using Particle Workbench and the command pallette (cmd / ctrl + shift + p):
+   - Configure project for your device using Particle Workbench and the command pallette (cmd / ctrl + shift + p):
       ![Configure project for device](./images/configure-project.png)
-   2. Select your device model and Device OS release:
+   - Select your device model and Device OS release:
       ![Select device](./images/configure-msom.png)
       ![Select device OS](./images/configure-device-os.png)
 
 8. **Open a serial terminal**:
 
-   1. Open a serial monitor session by choosing `Particle: Serial monitor` from the command pallette:
+   - Open a serial monitor session by choosing `Particle: Serial monitor` from the command pallette:
       ![Serial monitor](./images/serial-monitor.png)
 
 9. **Observe output**
 
-   1. You should now see logs indicating that publishes have succeeded. Each publish to the `data` event stream will trigger the webhook responsible for inserting data into the InfluxDB instance.
+   - You should now see logs indicating that publishes have succeeded. Each publish to the `data` event stream will trigger the webhook responsible for inserting data into the InfluxDB instance.
 
       ```
       0000010622 [app] INFO: publish succeeded
@@ -137,7 +137,7 @@ This blueprint shows how to configure an InfluxDB time series database integrati
 
 10. **Confirm in InfluxDB**
 
-    1. Navigate back to your InfluxDB Data Explorer to view the new time series data as it streams in:
+    - Navigate back to your InfluxDB Data Explorer to view the new time series data as it streams in:
        ![Data explorer](./images/influx/influx-data.png)
 
 ---
