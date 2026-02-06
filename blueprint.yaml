@@ -1,31 +1,39 @@
 # blueprint.yaml
-slug: blueprint-template
+slug: blueprint-intermediate-influxdb
 type: Tutorial
 category: "Cloud basics"
-expertiseLevel: "Beginner"               # Beginner | Intermediate | Advanced
-tags: ["Publish", "Function", "Console"]
-icon: assets/hero.jpg                    # relative path to an image or SVG
-gitrepo: https://github.com/particle-iot/blueprint-template
-name: "Blueprint Template"
-shortDescription: "A sample template for creating new Blueprints"
-version: 1.0.0                           # use SemVer
-models: []                               # e.g., ["P2", "Boron 404X"]
+expertiseLevel: "Intermediate"
+tags: ["Webhook", "Publish", "Time Series"]
+icon: assets/influxdb.svg
+gitrepo: https://github.com/particle-iot/blueprint-intermediate-influxdb
+name: "InfluxDB Time Series Integration"
+shortDescription: "Configure an InfluxDB time series database integration with Particle webhooks"
+version: 1.0.0
+models: []
 language: ["C++"]
-cloudServices: []
-integrations: []
+cloudServices: ["InfluxDB"]
+integrations: ["Webhook", "Cloud Secrets"]
 supportedDevices:
   - name: Any Wi-Fi or Cellular Device
-    link: https://docs.particle.io
-webIdeLink:
-webSetupLink:
+    link: https://docs.particle.io/hardware/
 hardwareDependencies:
-  - name: Supported device
+  - name: Particle device (Photon 2, Boron, etc.)
   - name: USB cable
 introduction: |
-  Quickstart blueprint.
+  This blueprint shows how to configure an InfluxDB time series database integration to stream data from your Particle device to the cloud.
 description: |
-  This tutorial shows how to create a new blueprint.
-additionalResources:
-  - title: Particle Dev Docs
-    link: https://developer.particle.io/
+  This tutorial walks you through setting up an InfluxDB time series database integration with Particle:
 
+  - Creating an InfluxDB bucket and API token
+  - Configuring Particle Cloud Secrets for secure credential storage
+  - Setting up a custom webhook to send data to InfluxDB
+  - Publishing time series data from your device firmware
+
+  The firmware periodically publishes JSON data which triggers the webhook to insert records into your InfluxDB instance.
+additionalResources:
+  - title: Particle Extended Publish API
+    link: https://docs.particle.io/reference/device-os/typed-publish/
+  - title: Particle Integrations
+    link: https://docs.particle.io/integrations/introduction/
+  - title: InfluxDB Line Protocol
+    link: https://docs.influxdata.com/influxdb3/core/reference/line-protocol/
