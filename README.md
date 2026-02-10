@@ -1,4 +1,4 @@
-# Title
+# Intermediate Influx DB
 
 **Difficulty:** Intermediate
 
